@@ -8,3 +8,7 @@ init:
 
 before_build:
   - nuget restore
+
+artifacts:
+  - path: ROM0Split\bin\$(configuration)
+  
