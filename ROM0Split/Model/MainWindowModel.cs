@@ -110,11 +110,7 @@ namespace ROM0Split.Model
 					UInt64 remaining = size;
 					int bytesRead;
 					while (remaining > 0 && (bytesRead = stream.Read(buffer, 0,
-							int.Parse(
-								Math.Min(remaining, BUFFER_SIZE).ToString()
-								)
-								)
-								) > 0)
+							int.Parse(Math.Min(remaining, BUFFER_SIZE).ToString()))) > 0)
 					{
 						outFile.Write(buffer, 0, bytesRead);
 						remaining -= (uint)bytesRead;
@@ -125,6 +121,8 @@ namespace ROM0Split.Model
 					outFile.Dispose();
 					Console.WriteLine(node["partition_index"]);
 				}
+
+				MessageBox.Show("Splitting Done", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 			}
 		}
 
